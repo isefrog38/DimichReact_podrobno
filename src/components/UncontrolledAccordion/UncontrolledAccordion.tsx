@@ -7,18 +7,18 @@ type AccordionPropsType = {
 
 function UncontrolledAccordion(props: AccordionPropsType) {
 
-    let [on , setDown ] = useState(true)
+    let [on , setNewState] = useState(true);
 
     return (
         <>
             <AccordionTitle title={props.titleValue}/>
-            <button onClick={ () => { setDown(false) } }>
+            <button onClick={ () => { setNewState(!on) } }>
                 {` ${ on ? "Down" : "Up" } `}
             </button>
             {!on && <AccordionBody/>}
         </>
     );
-};
+}
 
 type AccordionTitlePropsType = {
     title: string
