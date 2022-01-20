@@ -8,16 +8,17 @@ import UncontrolledRaiting from "./components/UncontolledRaiting/UncontrolledRai
 
 function App() {
     return (
-        <>
+        <div className={'app'}>
+            <PageTitle title={'Buttons'}/>
             <OnOff />
             <OnOff />
             <OnOff />
 
             <UncontrolledAccordion titleValue={"Menu"}/>
             <UncontrolledAccordion titleValue={"Users"}/>
-            <UncontrolledRaiting value={2} />
-            <UncontrolledRaiting value={3} />
-            <UncontrolledRaiting value={5} />
+            <UncontrolledRaiting />
+            <UncontrolledRaiting />
+            <UncontrolledRaiting />
             {/*<PageTitle title={"This is APP component"}/>
             <PageTitle title={"This is dubl 2"}/>
             <Rating value={3}/>
@@ -28,7 +29,7 @@ function App() {
             <Rating value={3}/>
             <Rating value={4}/>
             <Rating value={5}/>*/}
-        </>
+        </div>
     )
 }
 

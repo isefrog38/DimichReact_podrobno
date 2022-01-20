@@ -12,7 +12,7 @@ function Accordion(props: AccordionPropsType) {
         {!props.collapsed && <AccordionBody/>}
     </>
     );
-};
+}
 
 type AccordionTitlePropsType = {
     title: string
