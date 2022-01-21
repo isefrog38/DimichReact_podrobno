@@ -1,34 +1,41 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
-import Rating from "./components/Raiting/Raiting";
-import OnOff from "./components/OnOff/OnOff";
+import Rating, {RatingValueType} from "./components/Raiting/Raiting";
+import UncontrolledOnOff from "./components/UncontrolledOnOff/UncontrolledOnOff";
 import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import UncontrolledRaiting from "./components/UncontolledRaiting/UncontrolledRaiting";
+import OnOff from "./components/OnOff/OnOff";
+
 
 function App() {
+
+    let [ratingState , setRatingState] = useState<RatingValueType>(2);
+    let [on, setOn] = useState<boolean>(false);
+    let [collapsed, setCollapsed] = useState<boolean>(true);
+
     return (
         <div className={'app'}>
             <PageTitle title={'Buttons'}/>
-            <OnOff />
-            <OnOff />
-            <OnOff />
-
+            <hr/>
+            <Rating value={ratingState} onClickStar={setRatingState}/>
+            <hr/>
+            <UncontrolledOnOff setOn={setOn}/>
+            <UncontrolledOnOff setOn={setOn}/>
+            <hr/>
+            <OnOff onClickButton={setOn} on={on}/>
+            <OnOff onClickButton={setOn} on={on}/>
+            <hr/>
             <UncontrolledAccordion titleValue={"Menu"}/>
             <UncontrolledAccordion titleValue={"Users"}/>
+            <hr/>
             <UncontrolledRaiting />
             <UncontrolledRaiting />
             <UncontrolledRaiting />
-            {/*<PageTitle title={"This is APP component"}/>
-            <PageTitle title={"This is dubl 2"}/>
-            <Rating value={3}/>
-            <Accordion titleValue={"Menu"} collapsed={false}/>
-            <Accordion titleValue={"Users"} collapsed={false}/>
-            <Rating value={1}/>
-            <Rating value={2}/>
-            <Rating value={3}/>
-            <Rating value={4}/>
-            <Rating value={5}/>*/}
+            <hr/>
+            <Accordion titleValue={"Menu"} collapsed={collapsed} setCollapsed={ setCollapsed } />
+            <Accordion titleValue={"Users"} collapsed={collapsed} setCollapsed={ setCollapsed } />
+            <hr/>
         </div>
     )
 }

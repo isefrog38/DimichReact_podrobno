@@ -11,29 +11,38 @@ function UncontrolledAccordion(props: AccordionPropsType) {
 
     return (
         <>
-            <AccordionTitle title={props.titleValue}/>
-            <button onClick={ () => { setNewState(!on) } }>
-                {` ${ on ? "Down" : "Up" } `}
-            </button>
+             {/*альтернативный вариант*/}
+            <AccordionTitle title={props.titleValue} setNewState={ () => {setNewState(!on)} } />
+            {/*<AccordionTitle title={props.titleValue} setNewState={setNewState} on={!on} />*/}
             {!on && <AccordionBody/>}
         </>
     );
 }
 
 type AccordionTitlePropsType = {
+    /*title: string
+    on: boolean
+    setNewState: (on: boolean) => void*/
+
+    //Альтернативные пропсы
     title: string
+    setNewState: () => void
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
-    return (<h3>{props.title}</h3>)
+    return (
+        <h3 onClick={() => {props.setNewState()}}>
+        {/*<h3 onClick={() => {props.setNewState(props.on)}}>*/}
+        ---{props.title}---
+    </h3>)
 }
 
 function AccordionBody() {
     return (
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, nulla.</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, quam.</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, tenetur?</li>
         </ul>
     )
 }
