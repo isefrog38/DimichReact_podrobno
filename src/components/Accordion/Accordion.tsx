@@ -1,12 +1,15 @@
 import React from 'react';
 
-type AccordionPropsType = {
+export type AccordionPropsType = {
     titleValue: string
     setCollapsed: (collapsed: boolean) => void
+    /**
+     * Commentarij { / / * * enter}
+     */
     collapsed: boolean
 }
 
-function Accordion(props: AccordionPropsType) {
+export function Accordion(props: AccordionPropsType) {
     return (
     <>
         <AccordionTitle title={props.titleValue} setCollapsed={() => props.setCollapsed(!props.collapsed)} />
@@ -36,6 +39,3 @@ function AccordionBody() {
         </ul>
     )
 }
-
-
-export default Accordion;

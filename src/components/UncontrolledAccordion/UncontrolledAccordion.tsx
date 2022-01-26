@@ -5,7 +5,8 @@ type AccordionPropsType = {
     // collapsed: boolean
 }
 
-function UncontrolledAccordion(props: AccordionPropsType) {
+export function UncontrolledAccordion(props: AccordionPropsType) {
+    console.log("UncontrolledAccordion rendering")
 
     let [on , setNewState] = useState(true);
 
@@ -40,12 +41,11 @@ function AccordionTitle(props: AccordionTitlePropsType) {
 function AccordionBody() {
     return (
         <ul>
-            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, nulla.</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, quam.</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, tenetur?</li>
+            <li>--1--</li>
+            <li>--2--</li>
+            <li>--3--</li>
         </ul>
     )
 }
 
 
-export default UncontrolledAccordion;
