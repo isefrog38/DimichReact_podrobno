@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useReducer} from 'react';
+import {ACCORDION, reducer} from "../reducer";
 
 type AccordionPropsType = {
     titleValue: string,
@@ -6,16 +7,13 @@ type AccordionPropsType = {
 }
 
 export function UncontrolledAccordion(props: AccordionPropsType) {
-    console.log("UncontrolledAccordion rendering")
 
-    let [on , setNewState] = useState(true);
+    let [state , dispatch] = useReducer(reducer, {collapsed: true});
 
     return (
         <>
-             {/*альтернативный вариант*/}
-            <AccordionTitle title={props.titleValue} setNewState={ () => {setNewState(!on)} } />
-            {/*<AccordionTitle title={props.titleValue} setNewState={setNewState} on={!on} />*/}
-            {!on && <AccordionBody/>}
+            <AccordionTitle title={props.titleValue} setNewState={() => { dispatch({type: ACCORDION}) }}/>
+            {!state.collapsed && <AccordionBody/>}
         </>
     );
 }

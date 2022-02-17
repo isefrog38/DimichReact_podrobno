@@ -1,19 +1,24 @@
 import React from 'react';
 
+export type ItemType ={
+    title: string
+    value: any
+}
+
 export type AccordionPropsType = {
     titleValue: string
     setCollapsed: (collapsed: boolean) => void
-    /**
-     * Commentarij { / / * * enter}
-     */
     collapsed: boolean
+    items: Array<ItemType>
+    onClick: (value: any) => void
 }
 
 export function Accordion(props: AccordionPropsType) {
+
     return (
     <>
         <AccordionTitle title={props.titleValue} setCollapsed={() => props.setCollapsed(!props.collapsed)} />
-        {!props.collapsed && <AccordionBody/>}
+        {!props.collapsed && <AccordionBody onClick={props.onClick} items={props.items}/>}
     </>
     );
 }
@@ -30,12 +35,19 @@ function AccordionTitle(props: AccordionTitlePropsType) {
     </h3>)
 }
 
-function AccordionBody() {
+export type AccordionBodyType = {
+    onClick: (value: any) => void
+    items: Array<ItemType>
+}
+
+function AccordionBody (props: AccordionBodyType) {
     return (
         <ul>
-            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, nulla.</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, quam.</li>
-            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, tenetur?</li>
+            {props.items.map((i , index)=>
+                <li onClick={ () => { props.onClick(i.value) } }
+                    key={index}>
+                    {i.title}
+                </li>) }
         </ul>
     )
 }

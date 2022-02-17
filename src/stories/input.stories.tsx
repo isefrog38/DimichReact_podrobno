@@ -76,7 +76,7 @@ export const ControlledCheckBox = () => {
         return (
             <>
                 <select>
-                    <option value={parentValue} onChange={ onChange}> none</option>
+                    <option value={parentValue} > none</option>
                     <option value={"1"}> Minsk</option>
                     <option value={"1"}> Moscow</option>
                     <option value={"3"}> Kiev</option>
