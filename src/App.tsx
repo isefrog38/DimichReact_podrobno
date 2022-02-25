@@ -8,7 +8,8 @@ import {UncontrolledAccordion} from "./components/UncontrolledAccordion/Uncontro
 import {UncontrolledRating} from "./components/UncontolledRaiting/UncontrolledRaiting";
 import {OnOff} from "./components/OnOff/OnOff";
 import s from "./Select.module.css";
-import {Example1} from "./components/ReactMemo";
+import {Example1} from "./components/React.Memo/ReactMemo";
+import {NewMemo} from "./components/React.Memo/NewMemo";
 
 
 function App() {
@@ -30,6 +31,8 @@ function App() {
     return (
         <div className={'app'}>
             <PageTitle title={'Buttons'}/>
+
+            <NewMemo/>
             <hr/>
             <Example1 />
             <hr/>

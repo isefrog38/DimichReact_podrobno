@@ -10,13 +10,12 @@ const NewMessagesCounter = (props: { count: number }) => {
     </div>
 }
 
-const UsersSecret = (props: { users: Array<string> }) => {
+const Users = React.memo((props: { users: Array<string> }) => {
     return <div>
         {props.users.map((u, i) => <div key={i}>{u}</div>)}
     </div>
-}
+})
 
-const Users = React.memo(UsersSecret);
 
 
 export const Example1 = () => {
