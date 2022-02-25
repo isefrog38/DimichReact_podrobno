@@ -10,6 +10,7 @@ import {OnOff} from "./components/OnOff/OnOff";
 import s from "./Select.module.css";
 import {Example1} from "./components/React.Memo/ReactMemo";
 import {NewMemo} from "./components/React.Memo/NewMemo";
+import {HelperReactMemo} from "./components/React.Memo/HelperReactMemo";
 
 
 function App() {
@@ -30,26 +31,26 @@ function App() {
 
     return (
         <div className={'app'}>
-            <PageTitle title={'Buttons'}/>
-
-            <NewMemo/>
+            <PageTitle title={'Page'}/>
+            <HelperReactMemo/>
+            {/*<NewMemo/>
             <hr/>
             <Example1 />
             <hr/>
             <Select items={array} onClick={onClickCollapsed} value={value} collapsed={collapsed} onChange={onChange}/>
             <hr/>
-            {/*<Rating value={ratingState} onClickStar={setRatingState}/>
+            <Rating value={ratingState} onClickStar={setRatingState}/>
             <hr/>
             <UncontrolledOnOff setOn={setOn}/>
             <UncontrolledOnOff setOn={setOn}/>
             <hr/>
             <OnOff onClickButton={setOn} on={on}/>
             <OnOff onClickButton={setOn} on={on}/>
-            <hr/>*/}
+            <hr/>
             <UncontrolledAccordion titleValue={"Menu"}/>
             <UncontrolledAccordion titleValue={"Users"}/>
             <hr/>
-            {/*<UncontrolledRating />
+            <UncontrolledRating />
             <UncontrolledRating />
             <UncontrolledRating />
             <hr/>
