@@ -11,6 +11,7 @@ import s from "./Select.module.css";
 import {Example1} from "./components/React.Memo/ReactMemo";
 import {NewMemo} from "./components/React.Memo/NewMemo";
 import {HelperReactMemo} from "./components/React.Memo/HelperReactMemo";
+import {LikeUseCallBack} from "./components/React.Memo/UseCallback";
 
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
     return (
         <div className={'app'}>
             <PageTitle title={'Page'}/>
-            <HelperReactMemo/>
+            <LikeUseCallBack/>
             {/*<NewMemo/>
             <hr/>
             <Example1 />
