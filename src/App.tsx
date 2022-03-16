@@ -7,15 +7,22 @@ import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOf
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledRating} from "./components/UncontolledRaiting/UncontrolledRaiting";
 import {OnOff} from "./components/OnOff/OnOff";
-import s from "./Select.module.css";
 import {Example1} from "./components/React.Memo/ReactMemo";
 import {NewMemo} from "./components/React.Memo/NewMemo";
-import {HelperReactMemo} from "./components/React.Memo/HelperReactMemo";
 import {LikeUseCallBack} from "./components/React.Memo/UseCallback";
 import {Clock} from "./components/CLOCK/Clock";
 
 
-function App() {
+
+type PageTitlePropsType = {
+    title: string
+}
+
+function PageTitle(props: PageTitlePropsType) {
+    return (<h1>{props.title}</h1>);
+}
+
+export function App() {
 
     let [ratingState , setRatingState] = useState<RatingValueType>(2);
     let [on, setOn] = useState<boolean>(false);
@@ -35,8 +42,8 @@ function App() {
         <div className={'app'}>
             <PageTitle title={'Page'}/>
             <Clock />
-            {/*<LikeUseCallBack/>*/}
-            {/*<NewMemo/>
+            <LikeUseCallBack/>
+            <NewMemo/>
             <hr/>
             <Example1 />
             <hr/>
@@ -59,18 +66,7 @@ function App() {
             <hr/>
             <Accordion titleValue={"Menu"} collapsed={collapsed} setCollapsed={ setCollapsed } items={array} onClick={setOn}/>
             <Accordion titleValue={"Users"} collapsed={collapsed} setCollapsed={ setCollapsed } items={array} onClick={setOn}/>
-            <hr/>*/}
+            <hr/>
         </div>
     )
 }
-
-type PageTitlePropsType = {
-    title: string
-}
-
-function PageTitle(props: PageTitlePropsType) {
-    return (<h1>{props.title}</h1>);
-}
-
-
-export default App;
