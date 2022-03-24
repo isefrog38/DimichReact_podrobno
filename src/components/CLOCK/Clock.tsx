@@ -11,13 +11,11 @@ export const ClocksComponent: FC<MainClockPropsType> = memo(({changeMode}) => {
 
         useEffect(() => {
             const goTime = setInterval(() => {
-                console.log('tick')
                 setDate(new Date())
             }, 1000)
 
-            return () => {
-                clearInterval(goTime)
-            }
+            return () => clearInterval(goTime)
+
         },[])
 
         return (
