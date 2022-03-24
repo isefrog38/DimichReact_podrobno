@@ -1,40 +1,31 @@
-import React, {useEffect, useState} from 'react';
-import "./Styles.css";
+import React, {FC, memo, useEffect, useState} from 'react';
+import {AnalogClock} from "./AnalogClock";
+import {DigitalClock} from "./DigitalClock";
 
-export const Clock = React.memo((props: any) => {
+type MainClockPropsType = {
+    changeMode: 'analog' | 'digital'
+}
 
+export const ClocksComponent: FC<MainClockPropsType> = memo(({changeMode}) => {
         let [date, setDate] = useState<Date>(new Date());
 
-        let hours = date.getHours(),
-            minute = date.getMinutes(),
-            seconds = date.getSeconds();
-
         useEffect(() => {
-
-            const intervalId = setInterval(() => {
+            const goTime = setInterval(() => {
+                console.log('tick')
                 setDate(new Date())
             }, 1000)
 
             return () => {
-                clearInterval(intervalId)
+                clearInterval(goTime)
             }
         },[])
 
-
         return (
-            <div className={"MainDiv"}>
-                <div>
-                    <div>
-                        {/*<h1>{`${new Date().toLocaleDateString()}`}</h1>*/}
-                        <h1 style={{marginLeft: "7px"}}>
-                            {`
-                              ${hours < 10 ? "0" + hours : hours}
-                            : ${minute < 10 ? "0" + minute : minute}
-                            : ${seconds < 10 ? "0" + seconds : seconds}
-                            `}
-                        </h1>
-                    </div>
-                </div>
+            <div style={{width: "100%"}}>
+                { changeMode === 'analog'
+                    ? <AnalogClock date={date} />
+                    : <DigitalClock date={date} />
+                }
             </div>
         );
 

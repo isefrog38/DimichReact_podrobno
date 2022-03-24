@@ -10,7 +10,7 @@ import {OnOff} from "./components/OnOff/OnOff";
 import {Example1} from "./components/React.Memo/ReactMemo";
 import {NewMemo} from "./components/React.Memo/NewMemo";
 import {LikeUseCallBack} from "./components/React.Memo/UseCallback";
-import {Clock} from "./components/CLOCK/Clock";
+import {ClocksComponent} from "./components/CLOCK/Clock";
 
 
 
@@ -24,6 +24,7 @@ function PageTitle(props: PageTitlePropsType) {
 
 export function App() {
 
+    let [modeClock, setModeClock] = useState<'analog' | 'digital'>('analog');
     let [ratingState , setRatingState] = useState<RatingValueType>(2);
     let [on, setOn] = useState<boolean>(false);
     let [value, setValue] = useState<number>(3);
@@ -38,11 +39,17 @@ export function App() {
         setValue(value)
     }
 
+    const ChangeClockMode = () => {
+        modeClock === 'analog' && setModeClock('digital');
+        modeClock === 'digital' && setModeClock('analog');
+    }
+
     return (
         <div className={'app'}>
             <PageTitle title={'Page'}/>
-            <Clock />
-            <LikeUseCallBack/>
+            <button onClick={ChangeClockMode} style={{margin: "30px"}}>Change Mode Clock</button>
+            <ClocksComponent changeMode={modeClock}/>
+            {/*<LikeUseCallBack/>
             <NewMemo/>
             <hr/>
             <Example1 />
@@ -66,7 +73,7 @@ export function App() {
             <hr/>
             <Accordion titleValue={"Menu"} collapsed={collapsed} setCollapsed={ setCollapsed } items={array} onClick={setOn}/>
             <Accordion titleValue={"Users"} collapsed={collapsed} setCollapsed={ setCollapsed } items={array} onClick={setOn}/>
-            <hr/>
+            <hr/>*/}
         </div>
     )
 }
